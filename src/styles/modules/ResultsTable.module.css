@@ -1,0 +1,118 @@
+.resultsTablePage {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.pageHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #5d4037;
+    text-shadow: 1px 1px 2px rgba(93, 64, 55, 0.1);
+}
+
+.resultsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.usersStats {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(93, 64, 55, 0.1);
+    border: 1px solid #d7ccc8;
+}
+
+.usersStats h2 {
+    text-align: center;
+    color: #5d4037;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #bcaaa4;
+    padding-bottom: 10px;
+}
+
+.tableContainer {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #d7ccc8;
+    background: white;
+}
+
+.statsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.statsTable th {
+    background: #bcaaa4;
+    color: white;
+    font-weight: 600;
+    padding: 15px;
+    text-align: center;
+}
+
+.statsTable td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.statsTable tr:hover {
+    background: #f9f9f9;
+}
+
+.statsTable tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.userIdCell {
+    font-family: monospace;
+    background: #efebe9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.noData {
+    text-align: center;
+    padding: 30px;
+    color: #8d6e63;
+    font-style: italic;
+}
+
+.backButton {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .usersStats {
+        padding: 20px;
+    }
+
+    .usersStats h2 {
+        font-size: 1.3rem;
+    }
+
+    .statsTable th,
+    .statsTable td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
+}

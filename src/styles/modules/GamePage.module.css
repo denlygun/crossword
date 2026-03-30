@@ -1,0 +1,104 @@
+.gamePage {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.gameHeader {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5d4037;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(93, 64, 55, 0.1);
+}
+
+.userBadge {
+    background: rgba(188, 170, 164, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #5d4037;
+    border: 1px solid #bcaaa4;
+}
+
+.gameInfo {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(93, 64, 55, 0.1);
+    border: 1px solid #d7ccc8;
+}
+
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5d4037;
+}
+
+.timeValue {
+    color: #d84315;
+    font-size: 1.3rem;
+}
+
+.gameContent {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.cluesSection {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(93, 64, 55, 0.1);
+    border: 1px solid #d7ccc8;
+}
+
+.gridSection {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(93, 64, 55, 0.1);
+    border: 1px solid #d7ccc8;
+}
+
+.gameActions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .gameContent {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .gameActions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gameActions button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

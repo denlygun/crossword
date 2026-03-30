@@ -1,0 +1,79 @@
+.resultPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.resultCard {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(93, 64, 55, 0.15);
+    text-align: center;
+    border: 1px solid #d7ccc8;
+}
+
+.resultCard.win {
+    border-top: 6px solid #a5d6a7;
+}
+
+.resultCard.lose {
+    border-top: 6px solid #ef9a9a;
+}
+
+.resultIcon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.resultCard h1 {
+    margin-bottom: 25px;
+    color: #5d4037;
+    font-size: 2rem;
+}
+
+.resultDetails {
+    text-align: left;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+}
+
+.resultDetails p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #5d4037;
+}
+
+.resultActions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .resultCard {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .resultCard h1 {
+        font-size: 1.5rem;
+    }
+
+    .resultActions {
+        flex-direction: column;
+    }
+
+    .resultActions button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,38 @@
+.cluesList {
+    width: 100%;
+}
+
+.title {
+    margin-bottom: 15px;
+    color: #5d4037;
+    border-bottom: 2px solid #bcaaa4;
+    padding-bottom: 8px;
+    font-size: 1.3rem;
+}
+
+.cluesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.clueItem {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    border-left: 3px solid #8d6e63;
+}
+
+.clueNumber {
+    font-weight: bold;
+    color: #5d4037;
+    margin-right: 8px;
+    min-width: 25px;
+}
+
+.clueText {
+    color: #6d4c41;
+    line-height: 1.4;
+}

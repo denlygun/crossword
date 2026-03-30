@@ -1,0 +1,86 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btnPrimary {
+    composes: btn;
+    background: linear-gradient(135deg, #d7ccc8, #bcaaa4);
+    color: #5d4037;
+}
+
+.btnPrimary:hover {
+    background: linear-gradient(135deg, #bcaaa4, #a1887f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 64, 55, 0.2);
+}
+
+.btnSecondary {
+    composes: btn;
+    background: #efebe9;
+    color: #5d4037;
+    border: 2px solid #bcaaa4;
+}
+
+.btnSecondary:hover {
+    background: #bcaaa4;
+    color: white;
+    border-color: #a1887f;
+}
+
+.btnResults {
+    composes: btn;
+    background: linear-gradient(135deg, #ffb74d, #ff9800);
+    color: #5d4037;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.2);
+}
+
+.btnResults:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    background: linear-gradient(135deg, #ffa726, #fb8c00);
+}
+
+.btnOutline {
+    composes: btn;
+    background: transparent;
+    color: #8d6e63;
+    border: 2px solid #8d6e63;
+}
+
+.btnOutline:hover {
+    background: #8d6e63;
+    color: white;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(93, 64, 55, 0.1);
+    border: 1px solid #d7ccc8;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
