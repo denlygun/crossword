@@ -172,18 +172,9 @@ Modified and extended for academic purposes
 
 ---
 
-## ⚠️ Disclaimer
 
-This project is provided "as is" without warranty of any kind.
-It is intended for educational purposes only.
 
----
 
-## 📌 Notes
-
-* Make sure to generate documentation before submission
-* Ensure Storybook runs correctly
-* Verify license report is included
 * Upload demo video
 
 ---
