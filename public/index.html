@@ -26,6 +26,34 @@
     -->
     <title>React App</title>
   </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+
+  <script>
+    window.addEventListener("load", function(){
+      window.cookieconsent.initialise({
+        palette: {
+          popup: {
+            background: "#252e39"
+          },
+          button: {
+            background: "#14a7d0"
+          }
+        },
+        theme: "classic",
+        position: "bottom",
+        content: {
+          message: "Цей сайт використовує cookies для покращення роботи.",
+          dismiss: "Прийняти",
+          deny: "Відхилити",
+          link: "Детальніше",
+          href: "/PRIVACY_POLICY.md"
+        },
+        type: "opt-in"
+      });
+    });
+  </script>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
