@@ -169,12 +169,3 @@ The video demonstrates:
 
 Denys Lyhun
 Modified and extended for academic purposes
-
----
-
-
-
-
-* Upload demo video
-
----
