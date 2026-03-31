@@ -2,28 +2,31 @@
 
 ## 📖 Description
 
-Crossword App is a web-based application designed for generating and solving crossword puzzles.
-The project demonstrates core principles of software development, including UI components, documentation, and compliance with GDPR requirements.
+**Crossword App** is a web application for generating and solving crossword puzzles.
+The project demonstrates modern frontend development practices, including component-based architecture, state management, documentation generation, and GDPR compliance.
 
 ---
 
 ## 🚀 Features
 
-* Generate crossword puzzles
-* Interactive solving interface
-* Responsive design
-* Cookie consent (GDPR compliant)
-* Component-driven development (Storybook)
-* Auto-generated documentation (JSDoc)
+* 🧠 Crossword puzzle generation
+* 🎮 Interactive solving interface
+* ⚙️ Game settings (grid size, timer)
+* 📱 Responsive UI
+* 🍪 Cookie consent (GDPR compliant)
+* 📚 Auto-generated documentation (JSDoc)
+* 🎨 UI component showcase (Storybook)
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies
 
-* JavaScript / React 
-* HTML5 / CSS3
-* Storybook
-* JSDoc
+* React
+* JavaScript (ES6+)
+* Formik + Yup (forms & validation)
+* Redux (state management)
+* JSDoc (documentation generation)
+* Storybook (UI components)
 
 ---
 
@@ -52,7 +55,7 @@ Start development server:
 npm start
 ```
 
-Build for production:
+Build project:
 
 ```bash
 npm run build
@@ -60,69 +63,85 @@ npm run build
 
 ---
 
-## 📚 Documentation
+## 📚 Documentation (JSDoc)
 
-Project documentation is generated using JSDoc.
+The project includes fully generated documentation.
 
-Generate docs:
+### Generate documentation:
 
 ```bash
 npx jsdoc -c jsdoc.json
 ```
 
-Documentation will be available in:
+### Open documentation:
+
+Open in browser:
 
 ```
-/docs
+docs/index.html
+```
+
+### Documentation includes:
+
+* Components
+* Functions
+* Modules
+* Constants
+* Props and examples
+
+📄 Additional info:
+
+```
+docs/README.md
 ```
 
 ---
 
-## 🧪 Storybook
+## 🎨 Storybook
 
-Storybook is used for UI component development and testing.
+Storybook is used to document and test UI components.
 
-Run Storybook:
+### Run Storybook:
 
 ```bash
 npm run storybook
 ```
 
-Includes:
+### Included components:
 
-* Basic component (Button)
-* Complex component (Crossword Grid)
-* Multiple variations (stories)
+* 🔘 Button (basic component)
+
+  * Default
+  * Primary
+  * Disabled
+* 🧩 CrosswordGrid (complex component)
+
+  * Empty grid
+  * Filled grid
+  * Interactive mode
 
 ---
 
 ## 🍪 GDPR & Cookies
 
-This project includes a cookie consent popup in compliance with GDPR regulations.
+This project includes a cookie consent popup compliant with GDPR.
 
-Users are informed about:
+Users can:
 
-* Cookie usage
-* Data policy
-* Consent options
-
-See: `PRIVACY_POLICY.md`
+* Accept cookies
+* Decline cookies
+* Manage preferences
 
 ---
 
-## 🔐 Privacy Policy
+## 🔐 Privacy & Legal
 
-A privacy policy is included in the root of the project:
+The project includes required legal documentation:
 
-```
-PRIVACY_POLICY.md
-```
-
-It describes:
-
-* Data usage
-* Cookies
-* User rights
+* 📄 `PRIVACY_POLICY.md` — privacy policy and usage terms
+* 📄 `GDPR.md` — GDPR compliance details
+* 📄 `LICENSE` — project license
+* 📄 `licenses.txt` — dependency licenses report
 
 ---
 
@@ -130,42 +149,67 @@ It describes:
 
 This project is licensed under the MIT License.
 
-See:
-
-```
-LICENSE
-```
-
-License check report:
-
-```
-licenses.txt
-```
-
-Generated using:
-
-```bash
-npx license-checker --production --summary > licenses.txt
-```
-
 ---
 
 ## 🎥 Demo Video
 
-Watch project demo here:
-👉 https://your-video-link.com
+📺 Demo video (required for submission):
+👉 [Click!](https://drive.google.com/file/d/1v29LTfKO7cTdNjMiYslpi4ssxBoyr8U_/view?usp=sharing)
 
-The video demonstrates:
+### Video should demonstrate:
 
 * Project запуск
-* Functionality
-* Documentation
-* Storybook
-* Cookie popup
+* Cookie popup (GDPR)
+* Documentation (JSDoc)
+* Storybook components
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+ ├── components/
+ ├── hooks/
+ ├── pages/
+ ├── store/
+ ├── data/
+ └── styles/
+
+docs/              # Generated documentation (JSDoc)
+.storybook/        # Storybook configuration
+```
+
+---
+
+## ⚙️ Configuration
+
+JSDoc config (`jsdoc.json`):
+
+```json
+{
+  "source": {
+    "include": ["src"]
+  },
+  "opts": {
+    "destination": "./docs",
+    "template": "node_modules/docdash",
+    "recurse": true
+  },
+  "templates": {
+    "default": {
+      "includeDate": false
+    }
+  }
+}
+```
 
 ---
 
 ## 👨‍💻 Author
 
-Denys Lyhun
-Modified and extended for academic purposes
+Denys Lyhunn
+ipz233_lda@student.ztu.edu.ua
+
+---
+
