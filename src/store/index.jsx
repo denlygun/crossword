@@ -1,3 +1,6 @@
+/**
+ * Redux store configuration.
+ */
 import { configureStore } from '@reduxjs/toolkit';
 import settingsReducer from './slices/settingsSlice';
 import usersReducer from './slices/usersSlice';

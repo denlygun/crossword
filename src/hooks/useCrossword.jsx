@@ -1,3 +1,9 @@
+/**
+ * Hook for managing crossword logic.
+ * @returns {Object}
+ * @property {string[][]} grid
+ * @property {function} updateCell
+ */
 import { useState, useEffect, useCallback } from "react";
 import { useSettings } from "./useSettings";
 import levels from "../data/levels";

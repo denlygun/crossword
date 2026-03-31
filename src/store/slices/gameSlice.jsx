@@ -1,3 +1,6 @@
+/**
+ * Redux slice for game state.
+ */
 import { createSlice } from '@reduxjs/toolkit';
 
 const loadGameHistoryFromStorage = () => {

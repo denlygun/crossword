@@ -1,3 +1,10 @@
+/**
+ * Portal for rendering modals outside DOM hierarchy.
+ * @component
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @returns {JSX.Element}
+ */
 import { createPortal } from "react-dom";
 
 const ModalPortal = ({ children }) => {

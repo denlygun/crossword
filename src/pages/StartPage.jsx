@@ -1,3 +1,9 @@
+/**
+ * Start page of the application.
+ * Allows user to begin a new game.
+ * @component
+ * @returns {JSX.Element}
+ */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../hooks/reduxHooks";

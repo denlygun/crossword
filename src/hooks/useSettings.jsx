@@ -1,3 +1,7 @@
+/**
+ * Hook for accessing and updating settings.
+ * @returns {Object}
+ */
 import { useAppDispatch, useAppSelector } from './reduxHooks';
 import {
     updateSettings,

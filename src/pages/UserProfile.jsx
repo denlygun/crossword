@@ -1,3 +1,9 @@
+/**
+ * User profile page.
+ * Displays user statistics and info.
+ * @component
+ * @returns {JSX.Element}
+ */
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSettings } from "../hooks/useSettings";

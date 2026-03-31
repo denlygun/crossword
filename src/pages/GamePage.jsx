@@ -1,3 +1,9 @@
+/**
+ * Main game page.
+ * Displays crossword and gameplay UI.
+ * @component
+ * @returns {JSX.Element}
+ */
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";

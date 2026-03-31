@@ -1,3 +1,11 @@
+/**
+ * Renders crossword grid.
+ * @component
+ * @param {Object} props
+ * @param {string[][]} props.grid - Crossword matrix
+ * @param {function} props.onChange - Cell change handler
+ * @returns {JSX.Element}
+ */
 import React from "react";
 import styles from "../styles/modules/CrosswordGrid.module.css";
 

@@ -1,3 +1,11 @@
+/**
+ * Modal shown when game ends.
+ * @component
+ * @param {Object} props
+ * @param {boolean} props.isOpen
+ * @param {function} props.onClose
+ * @returns {JSX.Element}
+ */
 import React from "react";
 import ModalPortal from "./ModalPortal";
 import styles from "../styles/modules/Modal.module.css";

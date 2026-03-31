@@ -1,3 +1,10 @@
+/**
+ * Hook controlling game lifecycle.
+ * @returns {Object}
+ * @property {boolean} isGameOver
+ * @property {function} startGame
+ * @property {function} endGame
+ */
 import { useState } from "react";
 
 export function useGameFlow() {

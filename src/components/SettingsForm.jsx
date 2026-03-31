@@ -1,3 +1,10 @@
+/**
+ * Form for changing game settings.
+ * @component
+ * @param {Object} props
+ * @param {function} props.onSubmit
+ * @returns {JSX.Element}
+ */
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";

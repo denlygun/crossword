@@ -1,3 +1,7 @@
+/**
+ * Crossword levels data.
+ * Contains predefined puzzles.
+ */
 const levels = {
     "3": {
         words: [

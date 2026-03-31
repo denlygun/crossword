@@ -1,3 +1,6 @@
+/**
+ * Context for managing application settings.
+ */
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const SettingsContext = createContext();

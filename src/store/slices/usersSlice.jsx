@@ -1,3 +1,6 @@
+/**
+ * Redux slice for users data.
+ */
 import { createSlice } from '@reduxjs/toolkit';
 
 const loadUsersFromStorage = () => {

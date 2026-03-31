@@ -1,3 +1,8 @@
+/**
+ * Table with previous game results.
+ * @component
+ * @returns {JSX.Element}
+ */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../hooks/reduxHooks';

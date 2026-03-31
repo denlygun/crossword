@@ -1,3 +1,6 @@
+/**
+ * Redux slice for settings state.
+ */
 import { createSlice } from '@reduxjs/toolkit';
 
 const loadSettingsFromStorage = () => {

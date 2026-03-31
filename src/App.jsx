@@ -1,3 +1,10 @@
+/**
+ * Root application component.
+ * Handles global layout and routing.
+ * @component
+ * @returns {JSX.Element}
+ */
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ReduxProvider from "./components/ReduxProvider";

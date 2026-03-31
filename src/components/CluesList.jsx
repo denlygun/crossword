@@ -1,3 +1,10 @@
+/**
+ * Displays list of crossword clues.
+ * @component
+ * @param {Object} props
+ * @param {string[]} props.clues - Array of clues
+ * @returns {JSX.Element}
+ */
 import React from "react";
 import styles from "../styles/modules/CluesList.module.css";
 

@@ -1,3 +1,8 @@
+/**
+ * Application header component.
+ * @component
+ * @returns {JSX.Element}
+ */
 import React from "react";
 
 const Header = ({ title }) => (

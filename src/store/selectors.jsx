@@ -1,3 +1,6 @@
+/**
+ * Redux selectors for accessing state.
+ */
 export const selectSettings = (state) => state.settings;
 export const selectUsers = (state) => state.users;
 export const selectGameState = (state) => state.game;
