@@ -1,5 +1,8 @@
 # 🧩 Crossword App
 
+<img width="946" height="819" alt="image" src="https://github.com/user-attachments/assets/b64da544-741a-4531-b888-c8a589051d39" />
+
+
 ## 📖 Description
 
 **Crossword App** is a web application for generating and solving crossword puzzles.
