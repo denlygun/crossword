@@ -140,7 +140,6 @@ The project includes required legal documentation:
 
 * 📄 `PRIVACY_POLICY.md` — privacy policy and usage terms
 * 📄 `GDPR.md` — GDPR compliance details
-* 📄 `LICENSE` — project license
 * 📄 `licenses.txt` — dependency licenses report
 
 ---
@@ -158,8 +157,6 @@ This project is licensed under the MIT License.
 
 ### Video should demonstrate:
 
-* Project запуск
-* Cookie popup (GDPR)
 * Documentation (JSDoc)
 * Storybook components
 
