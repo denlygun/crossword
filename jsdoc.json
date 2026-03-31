@@ -3,6 +3,13 @@
     "include": ["src"]
   },
   "opts": {
-    "destination": "./docs"
+    "destination": "./docs",
+    "template": "node_modules/docdash",
+    "recurse": true
+  },
+  "templates": {
+    "default": {
+      "includeDate": false
+    }
   }
 }

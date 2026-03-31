@@ -1,3 +1,5 @@
+
+import { createPortal } from "react-dom";
 /**
  * Portal for rendering modals outside DOM hierarchy.
  * @component
@@ -5,8 +7,6 @@
  * @param {React.ReactNode} props.children
  * @returns {JSX.Element}
  */
-import { createPortal } from "react-dom";
-
 const ModalPortal = ({ children }) => {
     const modalRoot = document.getElementById("modal-root");
 

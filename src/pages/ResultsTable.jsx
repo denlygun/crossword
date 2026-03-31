@@ -1,15 +1,15 @@
-/**
- * Table with previous game results.
- * @component
- * @returns {JSX.Element}
- */
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../hooks/reduxHooks';
 import { selectSortedUsers, selectGameHistory } from '../store/selectors';
 import styles from '../styles/modules/ResultsTable.module.css';
 import common from '../styles/modules/common.module.css';
-
+/**
+ * Table with previous game results.
+ * @component
+ * @returns {JSX.Element}
+ */
 const ResultsTable = () => {
     const navigate = useNavigate();
     const sortedUsers = useAppSelector(selectSortedUsers);

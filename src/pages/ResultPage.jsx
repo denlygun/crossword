@@ -1,14 +1,14 @@
-/**
- * Page displaying final game results.
- * @component
- * @returns {JSX.Element}
- */
+
 import React from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useSettings } from "../hooks/useSettings";
 import styles from "../styles/modules/ResultPage.module.css";
 import common from "../styles/modules/common.module.css";
-
+/**
+ * Page displaying final game results.
+ * @component
+ * @returns {JSX.Element}
+ */
 const ResultPage = () => {
     const { userId } = useParams();
     const navigate = useNavigate();

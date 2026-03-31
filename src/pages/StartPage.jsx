@@ -1,9 +1,4 @@
-/**
- * Start page of the application.
- * Allows user to begin a new game.
- * @component
- * @returns {JSX.Element}
- */
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../hooks/reduxHooks";
@@ -12,7 +7,12 @@ import { addUser } from "../store/slices/usersSlice";
 import SettingsForm from "../components/SettingsForm";
 import styles from "../styles/modules/StartPage.module.css";
 import common from "../styles/modules/common.module.css";
-
+/**
+ * Start page of the application.
+ * Allows user to begin a new game.
+ * @component
+ * @returns {JSX.Element}
+ */
 const StartPage = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();

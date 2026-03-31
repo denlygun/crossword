@@ -1,9 +1,4 @@
-/**
- * Root application component.
- * Handles global layout and routing.
- * @component
- * @returns {JSX.Element}
- */
+
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -14,7 +9,12 @@ import ResultPage from "./pages/ResultPage";
 import UserProfile from "./pages/UserProfile";
 import ResultsTable from "./pages/ResultsTable";
 import "./styles/global.css";
-
+/**
+ * Root application component.
+ * Handles global layout and routing.
+ * @component
+ * @returns {JSX.Element}
+ */
 function App() {
     return (
         <ReduxProvider>

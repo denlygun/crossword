@@ -1,10 +1,4 @@
-/**
- * Form for changing game settings.
- * @component
- * @param {Object} props
- * @param {function} props.onSubmit
- * @returns {JSX.Element}
- */
+
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -15,7 +9,13 @@ const schema = Yup.object().shape({
     gridSize: Yup.number().oneOf([3, 4, 5]).required(),
     timer: Yup.number().oneOf([1, 3, 5]).required(),
 });
-
+/**
+ * Form for changing game settings.
+ * @component
+ * @param {Object} props
+ * @param {function} props.onSubmit
+ * @returns {JSX.Element}
+ */
 const SettingsForm = ({ onSubmit }) => {
     return (
         <Formik

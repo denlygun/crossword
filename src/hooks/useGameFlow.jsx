@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 /**
  * Hook controlling game lifecycle.
  * @returns {Object}
@@ -5,8 +7,6 @@
  * @property {function} startGame
  * @property {function} endGame
  */
-import { useState } from "react";
-
 export function useGameFlow() {
     const [page, setPage] = useState("start");
 

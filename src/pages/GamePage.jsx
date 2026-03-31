@@ -1,9 +1,4 @@
-/**
- * Main game page.
- * Displays crossword and gameplay UI.
- * @component
- * @returns {JSX.Element}
- */
+
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
@@ -15,7 +10,12 @@ import CluesList from "../components/CluesList";
 import GameEndModal from "../components/GameEndModal";
 import styles from "../styles/modules/GamePage.module.css";
 import common from "../styles/modules/common.module.css";
-
+/**
+ * Main game page.
+ * Displays crossword and gameplay UI.
+ * @component
+ * @returns {JSX.Element}
+ */
 const GamePage = () => {
     const { userId } = useParams();
     const navigate = useNavigate();

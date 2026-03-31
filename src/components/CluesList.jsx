@@ -1,3 +1,6 @@
+
+import React from "react";
+import styles from "../styles/modules/CluesList.module.css";
 /**
  * Displays list of crossword clues.
  * @component
@@ -5,9 +8,6 @@
  * @param {string[]} props.clues - Array of clues
  * @returns {JSX.Element}
  */
-import React from "react";
-import styles from "../styles/modules/CluesList.module.css";
-
 const CluesList = ({ clues }) => {
     return (
         <div className={styles.cluesList}>

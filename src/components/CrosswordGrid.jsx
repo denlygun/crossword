@@ -1,3 +1,6 @@
+
+import React from "react";
+import styles from "../styles/modules/CrosswordGrid.module.css";
 /**
  * Renders crossword grid.
  * @component
@@ -6,9 +9,6 @@
  * @param {function} props.onChange - Cell change handler
  * @returns {JSX.Element}
  */
-import React from "react";
-import styles from "../styles/modules/CrosswordGrid.module.css";
-
 const CrosswordGrid = ({ grid, updateCell }) => {
     return (
         <div className={styles.crosswordGrid}>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>pages/GamePage.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CluesList">CluesList</a></li><li><a href="global.html#CrosswordGrid">CrosswordGrid</a></li><li><a href="global.html#GameEndModal">GameEndModal</a></li><li><a href="global.html#GamePage">GamePage</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#ModalPortal">ModalPortal</a></li><li><a href="global.html#ReduxProvider">ReduxProvider</a></li><li><a href="global.html#ResultCard">ResultCard</a></li><li><a href="global.html#ResultPage">ResultPage</a></li><li><a href="global.html#ResultsTable">ResultsTable</a></li><li><a href="global.html#SettingsContext">SettingsContext</a></li><li><a href="global.html#SettingsForm">SettingsForm</a></li><li><a href="global.html#StartPage">StartPage</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#generateEmptyGrid">generateEmptyGrid</a></li><li><a href="global.html#levels">levels</a></li><li><a href="global.html#loadGameHistoryFromStorage">loadGameHistoryFromStorage</a></li><li><a href="global.html#loadSettingsFromStorage">loadSettingsFromStorage</a></li><li><a href="global.html#loadUsersFromStorage">loadUsersFromStorage</a></li><li><a href="global.html#root">root</a></li><li><a href="global.html#selectSettings">selectSettings</a></li><li><a href="global.html#store">store</a></li><li><a href="global.html#useAppDispatch">useAppDispatch</a></li><li><a href="global.html#useGameFlow">useGameFlow</a></li><li><a href="global.html#useSettings">useSettings</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">pages/GamePage.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { updateUserStats } from "../store/slices/usersSlice";
+import { endGame } from "../store/slices/gameSlice";
+import { useCrossword } from "../hooks/useCrossword";
+import CrosswordGrid from "../components/CrosswordGrid";
+import CluesList from "../components/CluesList";
+import GameEndModal from "../components/GameEndModal";
+import styles from "../styles/modules/GamePage.module.css";
+import common from "../styles/modules/common.module.css";
+/**
+ * Main game page.
+ * Displays crossword and gameplay UI.
+ * @component
+ * @returns {JSX.Element}
+ */
+const GamePage = () => {
+    const { userId } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const settings = useAppSelector((state) => state.settings);
+
+    const { grid, updateCell, reset, isLevelComplete, levelData } = useCrossword();
+
+    const [timeLeft, setTimeLeft] = useState(settings.timer * 60);
+    const [end, setEnd] = useState(false);
+    const [win, setWin] = useState(false);
+    const [startTime] = useState(Date.now());
+
+    useEffect(() => {
+        setTimeLeft(settings.timer * 60);
+        setEnd(false);
+        setWin(false);
+    }, [settings.timer, settings.gridSize]);
+
+    useEffect(() => {
+        if (timeLeft &lt;= 0 &amp;&amp; !end) {
+            setEnd(true);
+            setWin(false);
+            return;
+        }
+
+        if (end) return;
+
+        const timer = setInterval(() => {
+            setTimeLeft(t => t - 1);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [timeLeft, end]);
+
+    useEffect(() => {
+        if (isLevelComplete() &amp;&amp; timeLeft > 0 &amp;&amp; !end) {
+            setEnd(true);
+            setWin(true);
+        }
+    }, [isLevelComplete, timeLeft, end]);
+
+    const restart = () => {
+        reset();
+        setEnd(false);
+        setWin(false);
+        setTimeLeft(settings.timer * 60);
+    };
+
+    const handleModalClose = () => {
+        const timeSpent = Math.round((Date.now() - startTime) / 1000);
+
+        if (userId) {
+            console.log("Saving stats:", { userId, win, timeSpent });
+            dispatch(updateUserStats({ userId, win, time: timeSpent }));
+            dispatch(endGame({ win, timeSpent, userId, gridSize: settings.gridSize }));
+        }
+
+        navigate(`/result/${userId}`, {
+            state: { win, timeSpent }
+        });
+    };
+
+    const formatTime = (seconds) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    return (
+        &lt;div className={styles.gamePage}>
+            &lt;div className={`${common.container} ${styles.container}`}>
+                &lt;header className={styles.gameHeader}>
+                    &lt;h1 className={styles.title}>Кросворд ({settings.gridSize} x {settings.gridSize})&lt;/h1>
+                    {userId &amp;&amp; &lt;p className={styles.userBadge}>Гравець: {userId}&lt;/p>}
+                &lt;/header>
+
+                &lt;div className={styles.gameInfo}>
+                    &lt;div className={styles.timer}>
+                        Час: &lt;span className={styles.timeValue}>{formatTime(timeLeft)}&lt;/span>
+                    &lt;/div>
+                &lt;/div>
+
+                &lt;div className={styles.gameContent}>
+                    &lt;div className={styles.cluesSection}>
+                        &lt;CluesList clues={levelData.words} />
+                    &lt;/div>
+
+                    &lt;div className={styles.gridSection}>
+                        &lt;CrosswordGrid grid={grid} updateCell={updateCell} />
+                    &lt;/div>
+                &lt;/div>
+
+                &lt;div className={styles.gameActions}>
+                    &lt;button onClick={restart} className={`${common.btnSecondary}`}>
+                        Перезапустити
+                    &lt;/button>
+                    &lt;button
+                        onClick={() => navigate(userId ? `/user/${userId}` : "/")}
+                        className={`${common.btnSecondary}`}
+                    >
+                        Налаштування
+                    &lt;/button>
+                    &lt;button
+                        onClick={() => navigate('/results')}
+                        className={`${common.btnOutline}`}
+                    >
+                        Таблиця
+                    &lt;/button>
+                &lt;/div>
+
+                {end &amp;&amp; (
+                    &lt;GameEndModal
+                        win={win}
+                        onRestart={handleModalClose}
+                    />
+                )}
+            &lt;/div>
+        &lt;/div>
+    );
+};
+
+export default GamePage;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

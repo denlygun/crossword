@@ -1,3 +1,8 @@
+
+import React from "react";
+import ModalPortal from "./ModalPortal";
+import styles from "../styles/modules/Modal.module.css";
+import common from "../styles/modules/common.module.css";
 /**
  * Modal shown when game ends.
  * @component
@@ -6,11 +11,6 @@
  * @param {function} props.onClose
  * @returns {JSX.Element}
  */
-import React from "react";
-import ModalPortal from "./ModalPortal";
-import styles from "../styles/modules/Modal.module.css";
-import common from "../styles/modules/common.module.css";
-
 const GameEndModal = ({ win, onRestart }) => {
     return (
         <ModalPortal>

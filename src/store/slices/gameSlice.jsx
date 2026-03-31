@@ -1,8 +1,8 @@
+
+import { createSlice } from '@reduxjs/toolkit';
 /**
  * Redux slice for game state.
  */
-import { createSlice } from '@reduxjs/toolkit';
-
 const loadGameHistoryFromStorage = () => {
     try {
         const saved = localStorage.getItem('crossword_game_history');

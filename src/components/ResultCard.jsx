@@ -1,3 +1,5 @@
+
+import React from "react";
 /**
  * Displays result summary.
  * @component
@@ -6,8 +8,6 @@
  * @param {number} props.score
  * @returns {JSX.Element}
  */
-import React from "react";
-
 const ResultCard = ({ text }) => (
     <div className="result-card">
         <p>{text}</p>

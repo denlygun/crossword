@@ -1,3 +1,5 @@
+
+import React from "react";
 /**
  * Reusable button component.
  * @component
@@ -6,8 +8,6 @@
  * @param {function} [props.onClick] - Click handler
  * @returns {JSX.Element}
  */
-import React from "react";
-
 const Button = ({ text, onClick }) => (
     <button className="btn" onClick={onClick}>
         {text}

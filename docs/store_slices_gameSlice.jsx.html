@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>store/slices/gameSlice.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CluesList">CluesList</a></li><li><a href="global.html#CrosswordGrid">CrosswordGrid</a></li><li><a href="global.html#GameEndModal">GameEndModal</a></li><li><a href="global.html#GamePage">GamePage</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#ModalPortal">ModalPortal</a></li><li><a href="global.html#ReduxProvider">ReduxProvider</a></li><li><a href="global.html#ResultCard">ResultCard</a></li><li><a href="global.html#ResultPage">ResultPage</a></li><li><a href="global.html#ResultsTable">ResultsTable</a></li><li><a href="global.html#SettingsContext">SettingsContext</a></li><li><a href="global.html#SettingsForm">SettingsForm</a></li><li><a href="global.html#StartPage">StartPage</a></li><li><a href="global.html#UserProfile">UserProfile</a></li><li><a href="global.html#generateEmptyGrid">generateEmptyGrid</a></li><li><a href="global.html#levels">levels</a></li><li><a href="global.html#loadGameHistoryFromStorage">loadGameHistoryFromStorage</a></li><li><a href="global.html#loadSettingsFromStorage">loadSettingsFromStorage</a></li><li><a href="global.html#loadUsersFromStorage">loadUsersFromStorage</a></li><li><a href="global.html#root">root</a></li><li><a href="global.html#selectSettings">selectSettings</a></li><li><a href="global.html#store">store</a></li><li><a href="global.html#useAppDispatch">useAppDispatch</a></li><li><a href="global.html#useGameFlow">useGameFlow</a></li><li><a href="global.html#useSettings">useSettings</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">store/slices/gameSlice.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import { createSlice } from '@reduxjs/toolkit';
+/**
+ * Redux slice for game state.
+ */
+const loadGameHistoryFromStorage = () => {
+    try {
+        const saved = localStorage.getItem('crossword_game_history');
+        return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+        console.error('Error loading game history:', error);
+        return [];
+    }
+};
+
+const saveGameHistoryToStorage = (history) => {
+    try {
+        localStorage.setItem('crossword_game_history', JSON.stringify(history));
+    } catch (error) {
+        console.error('Error saving game history:', error);
+    }
+};
+
+const gameSlice = createSlice({
+    name: 'game',
+    initialState: {
+        currentGame: null,
+        gameHistory: loadGameHistoryFromStorage(),
+        isGameActive: false,
+    },
+    reducers: {
+        startGame: (state, action) => {
+            state.currentGame = {
+                id: Date.now(),
+                startTime: new Date().toISOString(),
+                settings: action.payload.settings,
+                userId: action.payload.userId,
+                completed: false,
+            };
+            state.isGameActive = true;
+        },
+        endGame: (state, action) => {
+            if (state.currentGame) {
+                const gameResult = {
+                    ...state.currentGame,
+                    endTime: new Date().toISOString(),
+                    win: action.payload.win,
+                    timeSpent: action.payload.timeSpent,
+                    gridSize: action.payload.gridSize,
+                    userId: action.payload.userId,
+                };
+
+                state.gameHistory.push(gameResult);
+                console.log('Game saved to history:', gameResult);
+
+                saveGameHistoryToStorage(state.gameHistory);
+
+                state.currentGame = null;
+                state.isGameActive = false;
+            } else {
+                const gameResult = {
+                    id: Date.now(),
+                    startTime: new Date(Date.now() - action.payload.timeSpent * 1000).toISOString(),
+                    endTime: new Date().toISOString(),
+                    win: action.payload.win,
+                    timeSpent: action.payload.timeSpent,
+                    gridSize: action.payload.gridSize,
+                    userId: action.payload.userId,
+                    settings: { gridSize: action.payload.gridSize },
+                };
+
+                state.gameHistory.push(gameResult);
+                console.log('Game saved without currentGame:', gameResult);
+                saveGameHistoryToStorage(state.gameHistory);
+            }
+        },
+        resetGame: (state) => {
+            state.currentGame = null;
+            state.isGameActive = false;
+        },
+    },
+});
+
+export const { startGame, endGame, resetGame } = gameSlice.actions;
+export default gameSlice.reducer;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

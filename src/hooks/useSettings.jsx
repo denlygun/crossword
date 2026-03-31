@@ -1,7 +1,4 @@
-/**
- * Hook for accessing and updating settings.
- * @returns {Object}
- */
+
 import { useAppDispatch, useAppSelector } from './reduxHooks';
 import {
     updateSettings,
@@ -11,7 +8,10 @@ import {
     addUser,
     updateUserStats
 } from '../store/slices/usersSlice';
-
+/**
+ * Hook for accessing and updating settings.
+ * @returns {Object}
+ */
 export const useSettings = () => {
     const dispatch = useAppDispatch();
     const settings = useAppSelector((state) => state.settings);

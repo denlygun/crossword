@@ -1,8 +1,8 @@
+
+import { createSlice } from '@reduxjs/toolkit';
 /**
  * Redux slice for users data.
  */
-import { createSlice } from '@reduxjs/toolkit';
-
 const loadUsersFromStorage = () => {
     try {
         const saved = localStorage.getItem('crossword_users');

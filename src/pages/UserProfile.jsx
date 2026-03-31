@@ -1,15 +1,15 @@
+
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSettings } from "../hooks/useSettings";
+import styles from "../styles/modules/ProfilePage.module.css";
+import common from "../styles/modules/common.module.css";
 /**
  * User profile page.
  * Displays user statistics and info.
  * @component
  * @returns {JSX.Element}
  */
-import React, { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useSettings } from "../hooks/useSettings";
-import styles from "../styles/modules/ProfilePage.module.css";
-import common from "../styles/modules/common.module.css";
-
 const UserProfile = () => {
     const { userId } = useParams();
     const navigate = useNavigate();

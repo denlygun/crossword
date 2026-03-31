@@ -1,8 +1,8 @@
+
+import { createSlice } from '@reduxjs/toolkit';
 /**
  * Redux slice for settings state.
  */
-import { createSlice } from '@reduxjs/toolkit';
-
 const loadSettingsFromStorage = () => {
     try {
         const saved = localStorage.getItem('crossword_settings');
